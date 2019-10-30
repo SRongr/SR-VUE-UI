@@ -1,13 +1,15 @@
 {
   "name": "sr-vue-ui",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "main": "lib/sr-vue-ui.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --SRongr sr-vue-ui --dest lib packages/index.js"
+    "lib": "vue-cli-service build --target lib --bigmanrr sr-vue-ui --dest lib packages/index.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "core-js": "^3.3.2",
@@ -27,6 +29,7 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "prettier": "^1.18.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.2.0"
   }
 }
