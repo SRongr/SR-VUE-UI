@@ -1,0 +1,61 @@
+@import '../../mixins/style/index.less';
+.kui-modal {
+  width: auto;
+  margin: 0 auto;
+  position: relative;
+  outline: none;
+  top: 100px;
+
+  &-hidden {
+    display: none !important;
+  }
+
+  &-wrap {
+      position: fixed;
+      overflow: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: @zindex-modal;
+      -webkit-overflow-scrolling: touch;
+      outline: 0;
+  }
+
+  &-wrap * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  &-mask {
+    .mask;
+  }
+
+  &-content {
+      position: relative;
+      background-color: #fff;
+      border: 0;
+      border-radius: @border-radius-base;
+      background-clip: padding-box;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  }
+  &-header {
+    .content-header;
+  }
+
+
+  &-body {
+    padding: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  &-footer {
+    padding: 12px 18px 12px 18px;
+    text-align: right;
+    button + button {
+        margin-left: 8px;
+        margin-bottom: 0;
+    }
+  }
+}

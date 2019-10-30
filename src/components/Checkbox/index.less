@@ -1,0 +1,13 @@
+@import '../../mixins/style/index.less';
+
+
+.kui-checkbox {
+  display: inline-block;
+  &-input {
+    .square(@checkbox-size) 
+  }
+  & + .kui-checkbox {
+    margin-left: 10px
+  }
+}
+

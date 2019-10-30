@@ -1,0 +1,43 @@
+.sr-form {
+  &-item {
+    padding: 10px 0;
+    &-content {
+      display: inline-block;
+      @keyframes show {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes hidden {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .fade-enter-active {
+        animation: ease-in-out show .5s forwards
+      }
+      .fade-leave-active {
+        animation: ease-in-out hidden .5s forwards
+      }
+    }
+    &-label {
+      display: inline-block;
+      &-require {
+        color: red;
+        margin-right: 2px;
+      }
+    }
+  }
+}
+
+.item-error {
+  color: red;
+  position: absolute;
+  font-size: 10px;
+}

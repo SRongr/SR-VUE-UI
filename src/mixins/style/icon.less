@@ -1,0 +1,36 @@
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+.square(@size) {
+  .size(@size; @size);
+}
+
+.icon() {
+  display: inline-block;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  .square(@icon-size);
+  &-large {
+    .square(@icon-size-large);
+  }
+
+  &-small {
+      .square(@icon-size-small);
+  }
+}
+.background-style(@imageUrl) {
+
+}

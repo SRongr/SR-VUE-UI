@@ -1,0 +1,85 @@
+@import '../../mixins/style/index.less';
+
+.clearfix{
+  &:before,
+  &:after {
+    content: ' ';
+    display: block;
+  }
+  &:before{clear: both;}
+}
+
+
+
+.kui-toast {
+  // width: auto;
+  // position: fixed;
+  z-index: 20;
+  // left: 50%;
+  // transform: translateX(-50%);
+  top: 20px;
+  margin: 20px auto;
+  outline: none;
+  background-color: #fff;
+  border: 0;
+  border-radius: @border-radius-base;
+  background-clip: padding-box;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:before{clear: both;}
+  &-content {
+    position: relative;
+    background-color: #fff;
+    border: 0;
+    border-radius: @border-radius-base;
+    background-clip: padding-box;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  }
+  &-body {
+    padding:32px 16px 24px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-icon {
+      margin-bottom: 12px;
+    }
+    &-text {
+      font-size: 14px;
+      color: #333333;
+    }
+  }
+
+}
+
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translate(0%, -20%)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0%, 0px)
+  }
+}
+@keyframes hidden {
+  0% {
+    opacity: 1;
+    transform: translate(0%, 0px)
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0%, -20%)
+  }
+}
+.fade-enter-active {
+  animation: ease-in-out show .5s forwards
+}
+.fade-leave-active {
+  animation: ease-in-out hidden .5s forwards
+}
