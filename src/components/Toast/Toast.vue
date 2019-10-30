@@ -1,16 +1,14 @@
 <template>
-    <div class="kui-toast-wrap">
-      <div class="kui-toast" :style="styles">
-        <div :class="classes">
-          <div class="kui-toast-body">
-            <div class="kui-toast-body-icon">
-              <Icon :type="type" size="40"/>
-            </div>
-            <div class="kui-toast-body-text" v-html="content"></div>
-          </div>
+  <transition name="fade">
+    <div v-if="show" class="kui-toast" :style="styles">
+      <div class="kui-toast-body">
+        <div class="kui-toast-body-icon">
+          <Icon :type="type" size="40"/>
         </div>
+        <div class="kui-toast-body-text" v-html="content"></div>
       </div>
     </div>
+  </transition>
 </template>
 
 <script>

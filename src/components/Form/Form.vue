@@ -50,7 +50,6 @@ export default {
       return new Promise(resolve => {
         let valid = true
         let count = 0
-        console.log(this.fields)
         this.fields.forEach(field => {
           field.validate('', errors => {
             if (errors) {

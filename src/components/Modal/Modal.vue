@@ -1,14 +1,18 @@
 <template>
   <div>
-    <div class="kui-modal-mask"></div>
-    <div class="kui-modal-wrap">
-      <div class="kui-modal" :style="styles">
+    <div class="kui-modal-mask" v-if="value"></div>
+    <div class="kui-modal-wrap" v-if="value">
+      <div class="kui-modal" :style="styles" >
         <div class="kui-modal-content">
-          <div class="kui-modal-body">
+          <div class="kui-modal-body" >
             <div class="kui-modal-confirm">
-              <div class="kui-modal-head"><slot name="head"></slot></div>
-              <div class="kui-modal-body"><slot name="body"></slot></div>
-              <div class="kui-modal-footer"><slot name="footer"></slot></div>
+              <div class="kui-modal-head"><slot name="head">{{ title }}</slot></div>
+              <div class="kui-modal-body"><slot name="body">{{ content}}</slot></div>
+              <div class="kui-modal-footer">
+                <slot name="footer">
+                  <Button type="primary" @click="handleMaskClick">确定</Button>
+                </slot>
+              </div>
             </div>
           </div>
         </div>
@@ -23,10 +27,26 @@
 */
 export default {
   name: "Modal",
+  model: {
+    prop: 'value',
+    event: 'input'
+  },
   props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
     width: {
       type: Number,
       default: 500
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    content: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -40,6 +60,13 @@ export default {
   },
   data () {
     return {
+    }
+  },
+  created() {
+  },
+  methods: {
+    handleMaskClick () {
+      this.$emit('input', false)
     }
   }
 }

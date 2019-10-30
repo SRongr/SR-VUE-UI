@@ -7,7 +7,6 @@
 
 
 /**
-* @param {string|number} value 绑定的值
 * @param {string} label 文字
 * @param {boolean} isTrue 是否被选中
 */

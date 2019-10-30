@@ -3,12 +3,12 @@ import VueRouter from "vue-router";
 // import Home from "../views/Home.vue";
 import indexPage from '../views/index.vue'
 import Button from '../views/Button.vue'
-import Checkbox from '@/views/Checkbox.vue'
-import Input from "@/views/Input.vue"
-import Icon from '@/views/Icon.vue'
-import Toast from '@/views/Toast.vue'
-import Modal from "@/views/Modal.vue";
-import Form from '@/views/Form.vue'
+import Checkbox from '../views/Checkbox.vue'
+import Input from "../views/Input.vue"
+import Icon from '../views/Icon.vue'
+import Toast from '../views/Toast.vue'
+import Modal from "../views/Modal.vue";
+import Form from '../views/Form.vue'
 
 Vue.use(VueRouter);
 

@@ -15,7 +15,7 @@
 /**
 * @param {string} type Button 类型
 * @param {string|number} size 大小
-* @param {boolean} isLoading 加载状态
+* @param {boolean} Loading 加载状态
 * @param {string} to 跳转路由
 * @param {boolean} ghost 幽灵框
 * @param {string} target 默认 '_self'

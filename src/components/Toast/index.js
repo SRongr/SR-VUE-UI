@@ -1,4 +1,4 @@
-import Toast from './Toast2.vue'
+import Toast from './Toast.vue'
 import noticeWrap from '../notification/index'
 import Vue from 'vue'
 let seed = 1

@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import Ui from '../main'
 export default {
   data () {
     return {

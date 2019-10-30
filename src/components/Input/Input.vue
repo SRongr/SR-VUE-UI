@@ -10,6 +10,7 @@
       ref="input"
       :class="inputClasses"
       :placeholder="placeholder"
+      :readonly="readonly"
       :disabled="disabled"
       :maxlength="maxlength"
       :value="currentValue"
@@ -18,13 +19,17 @@
       @blur="handleBlur"
       @input="handleInput"
       @change="handleChange"
+      @keyup.enter="handleEnter"
+      @keyup="handleKeyup"
+      @keypress="handleKeypress"
+      @keydown="handleKeydown"
     />
    <slot name="prefix"></slot>
   </div>
 </template>
 <script>
-import { oneOf } from '@/mixins/utils/assist'
-import Emitter from '@/mixins/utils/emitter.js'
+import { oneOf } from '../../mixins/utils/assist'
+import Emitter from '../../mixins/utils/emitter.js'
 const prefixCls = 'kui-input'
 export default {
   name: 'Input',
@@ -96,15 +101,7 @@ export default {
       type: Boolean,
       default: false
     },
-    prefix: {
-      type: String,
-      default: ''
-    },
-    suffix: {
-      type: String,
-      default: ''
-    },
-    search: {
+    readonly: {
       type: Boolean,
       default: false
     }
@@ -133,9 +130,6 @@ export default {
     handleKeyup (event) {
       this.$emit('onKeyup', event)
     },
-    handleIconClick (event) {
-      this.$emit('onClick', event)
-    },
     handleFocus (event) {
       this.$emit('onFocus', event)
     },
@@ -158,11 +152,6 @@ export default {
       this.setCurrentValue('')
       this.$emit('onChange', e)
       this.$emit('onClear')
-    },
-    handleSearch () {
-      if (this.disabled) return false
-      this.$refs.input.focus()
-      this.$emit('onSearch', this.currentValue)
     },
     setCurrentValue (value) {
       if (value === this.currentValue) {

@@ -1,10 +1,3 @@
-## Icon
-
-
-#### demo
-<IconDemo1></IconDemo1>
-
-```html
 <template>
   <div>
     <Icon type="warning" size="12"/>
@@ -25,8 +18,9 @@
     <Icon type="video"/>
   </div>
 </template>
-
-```
-| prop | desc | type | default |
-| - | - | - | - |
-| type | icon 类型,参考demo| string | - |
+<script>
+import UI from '../main'
+export default {
+  
+}
+</script>

@@ -12,7 +12,7 @@
 
 <script>
 import AsyncValidator from 'async-validator'
-import Emitter from '@/mixins/utils/emitter.js'
+import Emitter from '../../mixins/utils/emitter.js'
 export default {
   name: 'FormItem',
   mixins: [ Emitter ],
@@ -34,6 +34,9 @@ export default {
     },
     prop: {
       type: String,
+    },
+    rules: {
+      type: Object | Array
     }
   },
   inject: ['form'],
@@ -104,12 +107,14 @@ export default {
       return rules.filter(rule => !rule.trigger || rule.trigger.indexOf(trigger) !== -1)
     },
     validate(trigger, callback = function () {}) {
+      // debugger
       let rules = this.getFilteredRule(trigger)
       if (!rules || rules.length === 0) {
         if (!this.required) {
           callback()
           return true
         } else {
+          console.log('zoubi')
           rules = [{required: true}]
         }
       }
@@ -123,11 +128,14 @@ export default {
       let model = {}
 
       model[this.prop] = this.fieldValue
+      console.log(model)
       validator.validate(model, { firstFields: true }, errors => {
+        console.log('====')
         this.validateState = !errors ? 'success' : 'error'
         this.validateMessage = errors ? errors[0].message : ''
         callback(this.validateMessage)
       })
+    
     },
     getPropByPath(obj, path) {
       let tempObj = obj

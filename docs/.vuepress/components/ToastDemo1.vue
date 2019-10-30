@@ -1,11 +1,3 @@
-## Toast
-
-
-#### demo
-
-<ToastDemo1></ToastDemo1>
-
-``` html
 <template>
   <div>
     <Button @click="handleClick('warning')">warning</Button>
@@ -15,11 +7,14 @@
 </template>
 
 <script>
+import UI from '../main'
 export default {
   data () {
     return {
       show: true,
     }
+  },
+  created () {
   },
   methods: {
     handleClick (type) {
@@ -30,16 +25,3 @@ export default {
   }
 }
 </script>
-
-```
-#### Toast instance API
-通过直接调用方法使用组件
-- this.$Toast.success(config)
-- this.$Toast.warning(config)
-
-##### config 属性
-| prop | desc | type | default|
-| - | -| - | - |
-| deration | 展示时间 | Number | 2 |
-| content | 内容 | String | - | 
-| width | 提示宽度 | Number | 500|

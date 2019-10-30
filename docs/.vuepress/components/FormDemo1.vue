@@ -1,10 +1,3 @@
-## Form
-
-#### demo 
-
-<FormDemo1></FormDemo1>
-
-```html
 <template>
   <div>
     <Form ref="form" :model="formValidateData" :labelWidth="100" :rules="ruleValidate">
@@ -67,30 +60,3 @@ export default {
   }
 }
 </script>
-
-```
-#### Form Props
-| prop | desc | type | default |
-| - | - | - | - |
-| value | 表单项 | Object | - |
-| autocomplete | 自动补全 | String | 'off' |
-| rules | 检验规则 | Object | - |
-| labelWidth | 表单统一label宽度 | Number | 60 |
-
-#### Form Methods
-| methodName | desc | params |
-| - | - | - |
-| validate | 对整个表单进行校验，参数为检验完的回调，会返回一个 Boolean 表示成功与失败，支持 Promise | callback | 
-
-#### FormItem Props
-| prop | desc | type | default |
-| - | - | - | - |
-| label | 表单标签 | Object | - |
-| prop | 一定与form 字段统一 | String | - |
-| rules | 检验规则 | Object| Array | - |
-| labelWidth | 此表单项label宽度 | Number | 0 |
-
-#### FormItem slot
-| name | desc |
-| - | - | 
-| label | 表单标签 |
