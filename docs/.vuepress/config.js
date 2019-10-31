@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Hello VuePress',
-  description: 'Just playing around',
+  title: 'SRUI By VuePress',
+  description: '基于vue3的ui组件库',
  
   themeConfig: {
     sidebarDepth: 2,

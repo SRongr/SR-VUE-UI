@@ -45,10 +45,13 @@ npm run build
 npm run docs:dev
 // 默认localhost: 8080端口，如果被占用则自动向上累加
 ```
+![image](https://wrs970808-image.oss-cn-beijing.aliyuncs.com/jcy/WechatIMG325.png)
 ### 打包发布
 ```
 npm run lib
 npm publish
 ```
 ---
+
+#### 目前已有的 `Button,Checkbox,Input,Icon,Modal,Toast,Form`
 ### 待完善
