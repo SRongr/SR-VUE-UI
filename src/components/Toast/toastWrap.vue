@@ -11,43 +11,46 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       toasts: [],
       show: false
-    }
+    };
   },
   methods: {
-    add (notice) {
+    add(notice) {
       // const name = notice.name || getUuid();
 
-      let _notice = Object.assign({
-        styles: {
-          // right: '50%'
+      let _notice = Object.assign(
+        {
+          styles: {
+            // right: '50%'
+          },
+          content: "",
+          duration: 1.5,
+          closable: false,
+          name: name
         },
-        content: '',
-        duration: 1.5,
-        closable: false,
-        name: name
-      }, notice);
+        notice
+      );
       // try {
       //   console.log(notice)
       // console.log(this.notices)
-      
+
       // this.toasts.push(_notice);
       // } catch (error) {
       //   console.log(error)
       // }
-      
+
       // this.tIndex = this.handleGetIndex();
-    },
+    }
   }
-}
+};
 </script>
 ˆ
 <style lang="less" scoped>
-  .kui-toast-wrap {
-    position: fixed;
-    width: 100%;
-  }
+.kui-toast-wrap {
+  position: fixed;
+  width: 100%;
+}
 </style>

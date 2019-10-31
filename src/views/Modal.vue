@@ -11,23 +11,17 @@
     </Modal>
 
     <Button @click="show2 = true">点我展示默认</Button>
-     <Modal
-      v-model="show2"
-      title="这是标题"
-      content="这是内容"
-      >
-      </Modal>
+    <Modal v-model="show2" title="这是标题" content="这是内容"> </Modal>
   </div>
 </template>
 
 <script>
-import UI from '../main'
 export default {
-  data () {
+  data() {
     return {
       show: false,
       show2: false
-    }
+    };
   }
-}
+};
 </script>

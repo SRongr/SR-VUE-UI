@@ -1,4 +1,4 @@
-import { oneOf } from './assist'
+import { oneOf } from "./assist";
 
 export default {
   props: {
@@ -11,10 +11,10 @@ export default {
     },
     target: {
       type: String,
-      validator (value) {
-        return oneOf(value, ['_blank', '_self', '_parent', '_top'])
+      validator(value) {
+        return oneOf(value, ["_blank", "_self", "_parent", "_top"]);
       },
-      default: '_self'
+      default: "_self"
     },
     append: {
       type: Boolean,
@@ -23,56 +23,58 @@ export default {
     }
   },
   computed: {
-    linkUrl () {
-      const type = typeof this.to
-      console.log(this.to)
-      if (type !== 'string') {
-        return null
+    linkUrl() {
+      const type = typeof this.to;
+      console.log(this.to);
+      if (type !== "string") {
+        return null;
       }
-      if (this.to.includes('//')) {
+      if (this.to.includes("//")) {
         /* Absolute URL, we do not need to route this */
-        return this.to
+        return this.to;
       }
-      const router = this.$router
+      const router = this.$router;
       if (router) {
-        const current = this.$route
-        const route = router.resolve(this.to, current, this.append)
-        return route ? route.href : this.to
+        const current = this.$route;
+        const route = router.resolve(this.to, current, this.append);
+        return route ? route.href : this.to;
       }
-      return this.to
+      return this.to;
     }
   },
   methods: {
-    handleClick (newWindow = false) {
-      console.log(this.$router, newWindow)
-      const router = this.$router
+    handleClick(newWindow = false) {
+      console.log(this.$router, newWindow);
+      const router = this.$router;
 
       if (newWindow) {
-        let to = this.to
+        let to = this.to;
         if (router) {
-          const current = this.$route
-          const route = router.resolve(this.to, current, this.append)
-          to = route ? route.href : this.to
+          const current = this.$route;
+          const route = router.resolve(this.to, current, this.append);
+          to = route ? route.href : this.to;
         }
-        window.open(to)
+        window.open(to);
       } else {
         if (router) {
-          this.replace ? this.$router.replace(this.to) : this.$router.push(this.to)
+          this.replace
+            ? this.$router.replace(this.to)
+            : this.$router.push(this.to);
         } else {
-          window.location.href = this.to
+          window.location.href = this.to;
         }
       }
     },
-    handleCheckClick (event, newWindow = false) {
-      console.log(this.to, event, newWindow)
+    handleCheckClick(event, newWindow = false) {
+      console.log(this.to, event, newWindow);
       if (this.to) {
-        if (this.target === '_blank') {
-          return false
+        if (this.target === "_blank") {
+          return false;
         } else {
-          event.preventDefault()
-          this.handleClick(newWindow)
+          event.preventDefault();
+          this.handleClick(newWindow);
         }
       }
     }
   }
-}
+};

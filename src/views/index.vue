@@ -12,13 +12,11 @@
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {};
 </script>
 
 <style scoped>
-a{
-  display:block
+a {
+  display: block;
 }
 </style>

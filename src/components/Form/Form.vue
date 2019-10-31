@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import { oneOf } from '../../mixins/utils/assist'
+import { oneOf } from "../../mixins/utils/assist";
 export default {
-  name: 'Form',
-  data () {
+  name: "Form",
+  data() {
     return {
       fields: []
-    }
+    };
   },
   props: {
     model: {
@@ -19,15 +19,15 @@ export default {
     },
     autocomplete: {
       type: String,
-      alidator (value) {
-        return oneOf(value, ['on', 'off'])
+      alidator(value) {
+        return oneOf(value, ["on", "off"]);
       },
-      default: 'off'
+      default: "off"
     },
     rules: {
       type: Object,
-      default () {
-        return {}
+      default() {
+        return {};
       }
     },
     labelWidth: {
@@ -35,39 +35,37 @@ export default {
       default: 60
     }
   },
-  provide () {
-    return { form: this }
+  provide() {
+    return { form: this };
   },
-  created () {
-    console.log(this.rules)
-    this.$on('on-form-item-add', (field) => {
-      if (field) this.fields.push(field)
-      return false
-    })
+  created() {
+    this.$on("on-form-item-add", field => {
+      if (field) this.fields.push(field);
+      return false;
+    });
   },
   methods: {
     validate(callback) {
       return new Promise(resolve => {
-        let valid = true
-        let count = 0
+        let valid = true;
+        let count = 0;
         this.fields.forEach(field => {
-          field.validate('', errors => {
+          field.validate("", errors => {
             if (errors) {
-              valid = false
+              valid = false;
             }
             if (++count === this.fields.length) {
               // all finish
-              resolve(valid)
-              if (typeof callback === 'function') {
-                callback(valid)
+              resolve(valid);
+              if (typeof callback === "function") {
+                callback(valid);
               }
             }
-          })
-        })
-      })
-    },
+          });
+        });
+      });
+    }
   }
-}
+};
 </script>
-<style lang="less" src='./index.less'>
-</style>
+<style lang="less" src="./index.less"></style>

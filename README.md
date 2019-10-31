@@ -45,5 +45,10 @@ npm run build
 npm run docs:dev
 // 默认localhost: 8080端口，如果被占用则自动向上累加
 ```
+### 打包发布
+```
+npm run lib
+npm publish
+```
 ---
 ### 待完善

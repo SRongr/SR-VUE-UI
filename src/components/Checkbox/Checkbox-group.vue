@@ -4,19 +4,18 @@
   </div>
 </template>
 <script>
-
 /**
-* @param {string|number} value Button 绑定的值
-* @param {string} type 是多选 Checkbox 还是多选 Button 注意大小写
-*/
+ * @param {string|number} value Button 绑定的值
+ * @param {string} type 是多选 Checkbox 还是多选 Button 注意大小写
+ */
 
-import { findComponentsDownward } from '../../mixins/utils/assist'
+import { findComponentsDownward } from "../../mixins/utils/assist";
 export default {
-  name: 'CheckboxGroup',
-  data () {
+  name: "CheckboxGroup",
+  data() {
     return {
       childrens: []
-    }
+    };
   },
   props: {
     value: {
@@ -24,47 +23,43 @@ export default {
     },
     type: {
       type: String,
-      default: 'Checkbox',
-      validator (value) {
-        return value === 'Checkbox' || value === 'Button'
+      default: "Checkbox",
+      validator(value) {
+        return value === "Checkbox" || value === "Button";
       }
     }
   },
   computed: {
-    data () {
+    data() {
       return {
-        childrens: findComponentsDownward(this, 'Checkbox')
-      }
+        childrens: findComponentsDownward(this, "Checkbox")
+      };
     }
   },
-  mounted () {
-    this.updateChild()
+  mounted() {
+    this.updateChild();
   },
   methods: {
-    change (label) {
-      const have = this.value.indexOf(label)
+    change(label) {
+      const have = this.value.indexOf(label);
       if (have >= 0) {
-        this.value.splice(have, 1)
+        this.value.splice(have, 1);
       } else {
-        this.value.push(label)
+        this.value.push(label);
       }
-      this.$emit('input', this.value)
-      this.$emit('onChange', this.value)
-      this.updateChild()
+      this.$emit("input", this.value);
+      this.$emit("onChange", this.value);
+      this.updateChild();
     },
-    updateChild () {
-      this.childrens = findComponentsDownward(this, this.type)
+    updateChild() {
+      this.childrens = findComponentsDownward(this, this.type);
       if (this.childrens) {
-        console.log(this.value)
         this.childrens.forEach(child => {
-          child.model = this.value.indexOf(child.label) >= 0
-        })
+          child.model = this.value.indexOf(child.label) >= 0;
+        });
       }
     }
   }
-}
-
+};
 </script>
-<style lang="less" src="./index.less">
-
-</style>
+<style lang="less" src="./index.less"></style>

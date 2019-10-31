@@ -1,10 +1,10 @@
-import Button from './Button/index'
-import Icon from './Icon/index'
-import Checkbox from './Checkbox/index'
-import Input from './Input/index'
-import Toast from './Toast/index'
-import Modal from './Modal/index'
-import Form from './Form/index'
+import Button from "./Button/index";
+import Icon from "./Icon/index";
+import Checkbox from "./Checkbox/index";
+import Input from "./Input/index";
+import Toast from "./Toast/index";
+import Modal from "./Modal/index";
+import Form from "./Form/index";
 const components = {
   Button,
   Icon,
@@ -15,14 +15,14 @@ const components = {
   Modal,
   Form,
   FormItem: Form.Item
-}
+};
 
 const install = Vue => {
-  console.log(Object.values(components))
-  Object.values(components).forEach((com) => {
-    Vue.component(com.name, com)
-  })
-  Vue.prototype.$Toast = Toast
-}
+  console.log(Object.values(components));
+  Object.values(components).forEach(com => {
+    Vue.component(com.name, com);
+  });
+  Vue.prototype.$Toast = Toast;
+};
 
-export default install
+export default install;
