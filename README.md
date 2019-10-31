@@ -43,9 +43,8 @@ npm run build
 - 文档采用 vuepress 搭建
 ```
 npm run docs:dev
-// 默认localhost: 8080端口，如果被占用则自动向上累加
 ```
-![image](https://wrs970808-image.oss-cn-beijing.aliyuncs.com/jcy/WechatIMG325.png)
+![image](https://wrs970808-image.oss-cn-beijing.aliyuncs.com/jcy/vuepressdocs.png)
 ### 打包发布
 ```
 npm run lib
