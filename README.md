@@ -47,7 +47,7 @@ npm run docs:dev
 ![image](https://wrs970808-image.oss-cn-beijing.aliyuncs.com/jcy/vuepressdocs.png)
 ### 打包发布
 ```
-npm run lib
+npm run build
 npm publish
 ```
 ---

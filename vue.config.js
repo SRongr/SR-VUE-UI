@@ -5,22 +5,35 @@ module.exports = {
   // 修改默认的入口
   pages: {
     index: {
-      entry: "src/main.js",
+      entry:  process.env.NODE_ENV === 'production' ? 'src/components/index' : "src/main.js",
       template: "public/index.html",
-      filename: "index.html"
+      filename: "index.html",
+      output: 'index.js'
     }
+  },
+  outputDir: 'dist',
+  css: {
+    extract: false
   },
   configureWebpack: config => {
     if (process.env.NODE_ENV === "production") {
       // mutate config for production...'
       config.mode = "production";
       return {
+        output: {
+          path: path.resolve(__dirname, 'dist'),
+          filename: 'sr-ui.js',
+          library: 'sr-ui',
+          libraryTarget: 'umd',
+          umdNamedDefine: true
+        },
         optimization: {
-          minimizer: [new UglifyJsPlugin({
-            include: /.js/
-          }),
-          new WebpackDeepScopeAnalysisPlugin()
-        ],
+          minimizer: [
+            new UglifyJsPlugin({
+              include: /\.min\.js$/,
+            }),
+            new WebpackDeepScopeAnalysisPlugin()
+          ],
         }
       };
     } else {
@@ -35,7 +48,7 @@ module.exports = {
     // examples/docs是存放md文档的地方，也不需要eslint检查
     config.module
       .rule("eslint")
-      .exclude.add(path.resolve("lib"))
+      .exclude.add(path.resolve("dist"))
       .end()
       .exclude.add(path.resolve("src/docs"))
       .end();
